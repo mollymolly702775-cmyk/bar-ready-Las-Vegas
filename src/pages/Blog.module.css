@@ -1,0 +1,205 @@
+/* ===== HERO BANNER ===== */
+.heroBanner {
+  background: #061b2d;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 201, 131, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroBannerContent {
+  text-align: center;
+  z-index: 1;
+  padding: 0 24px;
+}
+
+.heroBannerTitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.heroBannerSub {
+  font-size: 18px;
+  color: #5bc983;
+  font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* ===== BLOG SECTION ===== */
+.blogSection {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.blogContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.blogCard {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blogCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.cardImage {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 27, 45, 0.2);
+}
+
+.cardBody {
+  padding: 28px 28px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCategory {
+  display: inline-block;
+  background: rgba(91, 201, 131, 0.12);
+  color: #5bc983;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(91, 201, 131, 0.25);
+}
+
+.cardTitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #061b2d;
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.cardExcerpt {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.cardLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5bc983;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  text-align: left;
+  transition: transform 0.3s ease;
+  align-self: flex-start;
+}
+
+.cardLink:hover {
+  transform: translateX(4px);
+}
+
+/* ===== COMING SOON ===== */
+.comingSoon {
+  text-align: center;
+  background: #f8fffe;
+  border: 2px dashed rgba(91, 201, 131, 0.35);
+  border-radius: 20px;
+  padding: 64px 48px;
+}
+
+.comingSoonIcon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.comingSoonTitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #061b2d;
+  margin-bottom: 14px;
+}
+
+.comingSoonText {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .blogGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroBannerTitle {
+    font-size: 40px;
+  }
+
+  .blogContainer {
+    padding: 0 24px;
+  }
+
+  .blogGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .blogSection {
+    padding: 72px 0;
+  }
+}

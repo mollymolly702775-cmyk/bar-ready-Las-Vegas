@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SlotMachine from '../components/SlotMachine.jsx';
+import HowItWorksCarousel from '../components/HowItWorksCarousel.jsx';
+import styles from './Home.module.css';
+---
+
+<BaseLayout
+  title="Bar Ready LV — Mock Health and Safety Inspections Las Vegas"
+  description="Bar Ready LV performs Mock Health and Safety Inspections for bars and restaurants in Las Vegas. Protect your bar from surprise closures, fines, and failed inspections."
+  canonical="https://barreadylv.com/"
+>
+  <main>
+    {/* ── HERO ─────────────────────────────────────────── */}
+    <section class={styles.hero}>
+      <div class={styles.heroInner}>
+        {/* Left */}
+        <div class={styles.heroLeft}>
+          <h1 class={styles.heroH1}>Stop Guessing.</h1>
+          <div class={styles.heroH1Line2}>
+            <span class={styles.textNavy}>Start </span>
+            <span class={styles.textGreen}>Passing.</span>
+          </div>
+          <p class={styles.heroDesc}>
+            Bar Ready LV helps bars and restaurants in Las Vegas stay ahead of health and safety requirements through professional Mock Health and Safety Inspections — so you never have to worry about what a real inspector might find.
+          </p>
+          <div class={styles.heroCtas}>
+            <a href="/contact" class={styles.btnPri}>Book an Inspection</a>
+            <a href="/how-it-works" class={styles.btnSec}>See How It Works</a>
+          </div>
+        </div>
+
+        {/* Right — Slot Machine */}
+        <div class={styles.heroRight}>
+          <SlotMachine client:load />
+        </div>
+      </div>
+    </section>
+
+    {/* ── PROBLEMS ─────────────────────────────────────── */}
+    <section class={styles.problems}>
+      <div class={styles.probWrapper}>
+        <div class={styles.probHeader}>
+          <div class={`${styles.secLabel} ${styles.secLabelCenter}`}>The Stakes</div>
+          <h2>One Bad Inspection Can Close Your Bar Overnight.</h2>
+          <p>We help you find the problems before the inspector does.</p>
+        </div>
+        <div class={styles.probGrid}>
+
+          {/* Card 1 — Surprise Closure */}
+          <div class={styles.pcard}>
+            <div class={styles.cardGraphic}>
+              <svg class={styles.gSvg} viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+                <rect width="260" height="150" fill="#fff2f2"/>
+                <rect x="70" y="30" width="120" height="70" rx="8" fill="#ef4444" opacity=".12"/>
+                <rect x="70" y="30" width="120" height="70" rx="8" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+                <text x="130" y="62" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" fill="#ef4444" letter-spacing="2" font-weight="800">CLOSED</text>
+                <text x="130" y="80" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9" fill="#ef4444" opacity=".7">by order of health dept.</text>
+                <line x1="40" y1="112" x2="220" y2="112" stroke="#ef4444" stroke-width="6" stroke-dasharray="14 8" opacity=".25"/>
+                <rect x="110" y="110" width="40" height="30" rx="3" fill="none" stroke="rgba(6,27,45,.1)" stroke-width="1"/>
+                <circle cx="143" cy="126" r="2.5" fill="rgba(6,27,45,.15)"/>
+              </svg>
+            </div>
+            <div class={styles.ctag}>Risk #1</div>
+            <div class={styles.ctitle}>Surprise Closure</div>
+            <div class={styles.ctext}>One failed inspection can shut your doors — sometimes for days. That's lost revenue, lost staff trust, and a very public mark on your business.</div>
+            <div class={styles.chover}>
+              <div class={styles.cstat}><div class={styles.cstatN}>Days</div><div class={styles.cstatL}>Average closure duration</div></div>
+              <div class={styles.cstat}><div class={styles.cstatN}>$0</div><div class={styles.cstatL}>Revenue while closed</div></div>
+            </div>
+          </div>
+
+          {/* Card 2 — Reputation */}
+          <div class={styles.pcard}>
+            <div class={styles.cardGraphic}>
+              <svg class={styles.gSvg} viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+                <rect width="260" height="150" fill="#fffbf0"/>
+                <rect x="90" y="15" width="80" height="120" rx="10" fill="none" stroke="rgba(6,27,45,.1)" stroke-width="1.5"/>
+                <rect x="90" y="15" width="80" height="120" rx="10" fill="rgba(6,27,45,.02)"/>
+                <text x="130" y="55" text-anchor="middle" font-size="18" fill="#f59e0b">★</text>
+                <text x="110" y="55" text-anchor="middle" font-size="18" fill="#f59e0b">★</text>
+                <text x="150" y="55" text-anchor="middle" font-size="18" fill="#f59e0b" opacity=".2">★</text>
+                <text x="130" y="72" text-anchor="middle" font-family="'Inter',sans-serif" font-size="8" fill="#ef4444" font-weight="600" letter-spacing="1">HEALTH SCORE: POOR</text>
+                <text x="130" y="85" text-anchor="middle" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(6,27,45,.4)">Visible to all visitors</text>
+                <rect x="98" y="95" width="64" height="1" fill="rgba(6,27,45,.06)"/>
+                <rect x="98" y="102" width="48" height="7" rx="3" fill="rgba(239,68,68,.12)"/>
+                <rect x="98" y="113" width="55" height="7" rx="3" fill="rgba(239,68,68,.08)"/>
+              </svg>
+            </div>
+            <div class={styles.ctag}>Risk #2</div>
+            <div class={styles.ctitle}>Your Reputation on Yelp</div>
+            <div class={styles.ctext}>A bad public health score doesn't stay private. Customers check ratings before choosing where to go. A failed inspection sends them to your competitors.</div>
+            <div class={styles.chover}>
+              <div class={styles.cstat}><div class={styles.cstatN}>Public</div><div class={styles.cstatL}>Scores are visible to all</div></div>
+              <div class={styles.cstat}><div class={styles.cstatN}>Lost</div><div class={styles.cstatL}>Customer traffic drops fast</div></div>
+            </div>
+          </div>
+
+          {/* Card 3 — Fines */}
+          <div class={styles.pcard}>
+            <div class={styles.cardGraphic}>
+              <svg class={styles.gSvg} viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+                <rect width="260" height="150" fill="#f0fdf4"/>
+                <rect x="65" y="70" width="130" height="65" rx="6" fill="#fff" stroke="rgba(6,27,45,.1)" stroke-width="1"/>
+                <rect x="60" y="55" width="130" height="65" rx="6" fill="#fff" stroke="rgba(6,27,45,.1)" stroke-width="1"/>
+                <rect x="55" y="40" width="130" height="65" rx="6" fill="#fff" stroke="rgba(6,27,45,.12)" stroke-width="1.2"/>
+                <text x="80" y="57" font-family="'Inter',sans-serif" font-size="7.5" fill="rgba(6,27,45,.4)" letter-spacing=".5">VIOLATION NOTICE</text>
+                <text x="80" y="70" font-family="'Plus Jakarta Sans',sans-serif" font-size="13" fill="#ef4444" letter-spacing="1" font-weight="800">$750 FINE</text>
+                <line x1="60" y1="76" x2="180" y2="76" stroke="rgba(6,27,45,.06)" stroke-width="1"/>
+                <text x="80" y="86" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(6,27,45,.3)">Temperature violation × 3</text>
+                <text x="80" y="96" font-family="'Inter',sans-serif" font-size="6.5" fill="rgba(6,27,45,.3)">Improper food storage</text>
+                <text x="155" y="70" font-size="22">💸</text>
+              </svg>
+            </div>
+            <div class={styles.ctag}>Risk #3</div>
+            <div class={styles.ctitle}>Fines Add Up Fast</div>
+            <div class={styles.ctext}>Health code violations come with financial penalties that stack quickly — on top of the operational chaos of a real inspection gone wrong.</div>
+            <div class={styles.chover}>
+              <div class={styles.cstat}><div class={styles.cstatN}>Stack</div><div class={styles.cstatL}>Fines per each violation</div></div>
+              <div class={styles.cstat}><div class={styles.cstatN}>Fast</div><div class={styles.cstatL}>Can accrue in one visit</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── HOW IT WORKS ─────────────────────────────────── */}
+    <section class={styles.hiw} id="how-it-works">
+      <div class={styles.hiwBg}>
+        <div class={styles.hiwBgGradient}></div>
+        <div class={`${styles.neonAccent} ${styles.na1}`}></div>
+        <div class={`${styles.neonAccent} ${styles.na2}`}></div>
+        <div class={`${styles.neonAccent} ${styles.na3}`}></div>
+        <div class={styles.starDots1}>★ ★ ★</div>
+        <div class={styles.starDots2}>♦ ♦ ♦</div>
+      </div>
+      <div class={styles.hiwInner}>
+        <div class={styles.hiwHdr}>
+          <div class={styles.secLabel}>The Full Process</div>
+          <h2>The Complete <em>7-Step</em> Journey</h2>
+          <p>From discovery to your next scheduled inspection — here's exactly how it works.</p>
+        </div>
+        <HowItWorksCarousel client:load />
+      </div>
+    </section>
+
+    {/* ── STATS ────────────────────────────────────────── */}
+    <section class={styles.statsSec}>
+      <div class={styles.statsInner}>
+        <div class={styles.statsLeft}>
+          <div class={styles.secLabel}>By the Numbers</div>
+          <h2>Built for Las Vegas.<br />Built for <em>Every Bar.</em></h2>
+          <p>From individual bar owners to casino hotel groups and large-scale restaurant investment firms, we serve the full spectrum of Las Vegas hospitality.</p>
+        </div>
+        <div class={styles.statsGrid}>
+          <div class={styles.scard}><div class={styles.sv}>2+</div><div class={styles.sl}>Years Serving Las Vegas Hospitality</div></div>
+          <div class={styles.scard}><div class={styles.sv}>100%</div><div class={styles.sl}>Mock Inspection Coverage on Every Visit</div></div>
+          <div class={styles.scard}><div class={styles.sv}>0</div><div class={styles.sl}>Surprise Closures for Bar Ready LV Clients</div></div>
+          <div class={styles.scard}><div class={styles.sv}>LV</div><div class={styles.sl}>The Only Dedicated Mock Inspection Service in Las Vegas</div></div>
+        </div>
+      </div>
+    </section>
+
+    {/* ── FINAL CTA ────────────────────────────────────── */}
+    <section class={styles.fcta}>
+      <div class={styles.fctaInner}>
+        <h2>Ready to Protect<br /><em>Your Bar?</em></h2>
+        <p>Book a Mock Health and Safety Inspection today and stop leaving your license to chance.</p>
+        <div class={styles.fctaBtns}>
+          <a href="/contact" class={styles.btnGl}>Get Your Bar Ready</a>
+          <a href="/pricing" class={styles.btnOl}>View Pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).style.opacity = '1';
+          (e.target as HTMLElement).style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll<HTMLElement>('.pcard, .scard, .statsLeft').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      revObs.observe(el);
+    });
+  </script>
+</BaseLayout>

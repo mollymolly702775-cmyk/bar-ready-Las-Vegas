@@ -1,0 +1,59 @@
+---
+import styles from './Footer.module.css';
+---
+
+<footer class={styles.footer}>
+  <div class={styles.container}>
+    <div class={styles.grid}>
+      <div class={styles.brandCol}>
+        <div class={styles.logo}>
+          <img src="/logo.svg" alt="Bar Ready LV" class={styles.logoImg} height="90" width="auto" />
+        </div>
+        <p class={styles.tagline}>Get your Bar Ready!</p>
+        <p class={styles.desc}>
+          Bar Ready LV performs Mock Health and Safety Inspections for bars and restaurants in Las Vegas, Nevada — helping establishments identify and correct compliance issues before a real inspector does.
+        </p>
+      </div>
+
+      <div class={styles.navCol}>
+        <h4 class={styles.colTitle}>Navigation</h4>
+        <nav class={styles.navLinks}>
+          <a href="/" class={styles.navLink}>Home</a>
+          <a href="/about" class={styles.navLink}>About</a>
+          <a href="/how-it-works" class={styles.navLink}>How It Works</a>
+          <a href="/blog" class={styles.navLink}>Blog</a>
+          <a href="/contact" class={styles.navLink}>Contact</a>
+        </nav>
+      </div>
+
+      <div class={styles.contactCol}>
+        <h4 class={styles.colTitle}>Contact</h4>
+        <div class={styles.contactItems}>
+          <div class={styles.contactItem}>
+            <span class={styles.contactIcon}>📍</span>
+            <span>Las Vegas, NV</span>
+          </div>
+          <div class={styles.contactItem}>
+            <span class={styles.contactIcon}>✉️</span>
+            <a href="mailto:contact@barreadylv.com" class={styles.contactLink}>
+              contact@barreadylv.com
+            </a>
+          </div>
+          <div class={styles.contactItem}>
+            <span class={styles.contactIcon}>⏱</span>
+            <span>Response within 1 business day</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class={styles.bottom}>
+      <p class={styles.copyright}>
+        © 2026 Bar Ready LV. All rights reserved. | Las Vegas, NV
+      </p>
+      <p class={styles.bottomTagline}>
+        Protecting Las Vegas bars, one inspection at a time.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import styles from './About.module.css';
+---
+
+<BaseLayout
+  title="About — Bar Ready LV | Las Vegas Bar Inspection Experts"
+  description="Bar Ready LV has been protecting Las Vegas bars and restaurants from surprise health inspection failures for over 2 years."
+  canonical="https://barreadylv.com/about"
+>
+  <main>
+    {/* HERO BANNER */}
+    <section class={styles.heroBanner}>
+      <div class={styles.heroBannerContent}>
+        <h1 class={styles.heroBannerTitle}>About Bar Ready LV</h1>
+        <p class={styles.heroBannerSub}>Protecting Las Vegas Bars, One Inspection at a Time</p>
+      </div>
+    </section>
+
+    {/* COMPANY OVERVIEW */}
+    <section class={styles.overviewSection}>
+      <div class={styles.overviewContainer}>
+        <div class={styles.overviewText}>
+          <p class={`${styles.overviewLabel} fade-in`}>WHAT WE DO</p>
+          <h2 class={`${styles.overviewHeadline} fade-in`}>Professional Mock Health and Safety Inspections for Las Vegas</h2>
+          <p class={`${styles.overviewBody} fade-in`}>
+            Bar Ready LV performs Mock Health and Safety Inspections for bars and restaurants in Las Vegas, Nevada — helping establishments identify and correct compliance issues before a real inspector does.
+          </p>
+          <p class={`${styles.overviewBody} fade-in`}>
+            We don't just perform the Mock Health and Safety Inspection — we deliver peace of mind. Our mission is to make Mock Health and Safety Inspections a required standard for every bar in the United States.
+          </p>
+          <a href="/contact" class={`${styles.overviewCta} fade-in`}>Book an Inspection</a>
+        </div>
+        <div class={`${styles.overviewCard} fade-in`}>
+          <div class={styles.overviewCardInner}>
+            <div class={styles.overviewCardIcon}>🛡️</div>
+            <h3 class={styles.overviewCardTitle}>Our Mission</h3>
+            <p class={styles.overviewCardText}>
+              To make Mock Health and Safety Inspections a required standard for every bar in the United States.
+            </p>
+            <div class={styles.overviewCardDivider}></div>
+            <div class={styles.overviewCardStat}>
+              <span class={styles.overviewCardStatNum}>$350</span>
+              <span class={styles.overviewCardStatLabel}>per month — peace of mind that pays for itself</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* THE BIG WHY */}
+    <section class={styles.whySection}>
+      <div class={styles.whyContainer}>
+        <div class={`${styles.whyQuote} fade-in`}>
+          <div class={styles.whyQuoteMark}>"</div>
+          <blockquote class={styles.whyBlockquote}>
+            Closures and fines can devastate a bar or restaurant. A bad health rating doesn't just attract penalties — it drives customers away and damages reputation. Bar Ready LV gives owners peace of mind and protects their business from preventable loss.
+          </blockquote>
+        </div>
+        <p class={`${styles.whyBody} fade-in`}>
+          Every year, bars and restaurants across Las Vegas face unexpected inspections that result in temporary closures, steep fines, and lasting damage to their reputation. The worst part? Most of these issues are entirely preventable. That's exactly why Bar Ready LV exists — to get ahead of the problem before a real inspector does.
+        </p>
+      </div>
+    </section>
+
+    {/* WHO WE SERVE */}
+    <section class={styles.serveSection}>
+      <div class={styles.serveContainer}>
+        <h2 class={`${styles.serveHeadline} fade-in`}>Who We Serve</h2>
+        <p class={`${styles.serveSub} fade-in`}>
+          From single-location bar owners to large-scale hospitality groups, we protect every level of the Las Vegas hospitality industry.
+        </p>
+        <div class={styles.serveGrid}>
+          <div class={`${styles.serveCard} fade-in`} style="transition-delay: 0ms">
+            <div class={styles.serveIcon}>🏢</div>
+            <h3 class={styles.serveCardTitle}>Restaurant Investment Firms</h3>
+            <p class={styles.serveCardText}>
+              Large-scale firms managing multiple F&amp;B assets need consistent compliance standards across every location. We protect your portfolio.
+            </p>
+          </div>
+          <div class={`${styles.serveCard} fade-in`} style="transition-delay: 100ms">
+            <div class={styles.serveIcon}>🎰</div>
+            <h3 class={styles.serveCardTitle}>Casinos</h3>
+            <p class={styles.serveCardText}>
+              Casino properties operating high-volume bars and restaurants face constant scrutiny. We help maintain standards that match your brand.
+            </p>
+          </div>
+          <div class={`${styles.serveCard} fade-in`} style="transition-delay: 200ms">
+            <div class={styles.serveIcon}>🏨</div>
+            <h3 class={styles.serveCardTitle}>Hospitality Groups</h3>
+            <p class={styles.serveCardText}>
+              Multi-venue hospitality operators need uniform compliance across their entire portfolio. We deliver that consistency.
+            </p>
+          </div>
+          <div class={`${styles.serveCard} fade-in`} style="transition-delay: 300ms">
+            <div class={styles.serveIcon}>🍺</div>
+            <h3 class={styles.serveCardTitle}>Individual Bar Owners</h3>
+            <p class={styles.serveCardText}>
+              Solo bar owners in Las Vegas deserve the same level of protection as the big players. We're here for you too.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* MEET THE TEAM */}
+    <section class={styles.teamSection}>
+      <div class={styles.teamContainer}>
+        <h2 class={`${styles.teamHeadline} fade-in`}>Meet the Team</h2>
+        <p class={`${styles.teamSub} fade-in`}>
+          Our inspection specialists bring expertise, professionalism, and genuine care to every visit.
+        </p>
+        <div class={styles.teamGrid}>
+          <div class={`${styles.teamCard} fade-in`} style="transition-delay: 0ms">
+            <div class={styles.teamAvatar}>
+              <div class={styles.teamAvatarInner}>
+                <span class={styles.teamAvatarIcon}>👤</span>
+              </div>
+            </div>
+            <h3 class={styles.teamName}>Team Member</h3>
+            <p class={styles.teamTitle}>Inspection Specialist</p>
+            <p class={styles.teamBio}>Team bios and photos coming soon.</p>
+          </div>
+          <div class={`${styles.teamCard} fade-in`} style="transition-delay: 100ms">
+            <div class={styles.teamAvatar}>
+              <div class={styles.teamAvatarInner}>
+                <span class={styles.teamAvatarIcon}>👤</span>
+              </div>
+            </div>
+            <h3 class={styles.teamName}>Team Member</h3>
+            <p class={styles.teamTitle}>Inspection Specialist</p>
+            <p class={styles.teamBio}>Team bios and photos coming soon.</p>
+          </div>
+          <div class={`${styles.teamCard} fade-in`} style="transition-delay: 200ms">
+            <div class={styles.teamAvatar}>
+              <div class={styles.teamAvatarInner}>
+                <span class={styles.teamAvatarIcon}>👤</span>
+              </div>
+            </div>
+            <h3 class={styles.teamName}>Team Member</h3>
+            <p class={styles.teamTitle}>Inspection Specialist</p>
+            <p class={styles.teamBio}>Team bios and photos coming soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section class={styles.ctaSection}>
+      <div class={styles.ctaContainer}>
+        <h2 class={`${styles.ctaHeadline} fade-in`}>Ready to Get Your Bar Ready?</h2>
+        <p class={`${styles.ctaSub} fade-in`}>
+          Don't wait for a real inspector to find the problems. Let Bar Ready LV find them first.
+        </p>
+        <a href="/contact" class={`${styles.ctaBtn} fade-in`}>Book Your Inspection</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</BaseLayout>

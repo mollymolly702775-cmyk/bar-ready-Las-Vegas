@@ -1,0 +1,509 @@
+/* ===== HERO — SPLIT COMPARISON ===== */
+.heroSection {
+  background: #061b2d;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  padding: 120px 56px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative LV text — bottom-left */
+.decoLasVegas {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.02);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Decorative BAR READY text — top-right */
+.decoBarReady {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.02);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.heroInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heroLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5bc983;
+  margin-bottom: 24px;
+}
+
+.heroHeadline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.heroSubline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  color: #5bc983;
+  line-height: 1;
+  margin-bottom: 48px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Split cards grid ── */
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* ── Shared card base ── */
+.cardBad,
+.cardGood {
+  border-radius: 20px;
+  padding: 40px 36px;
+}
+
+/* LEFT — red */
+.cardBad {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-top: 4px solid #ef4444;
+}
+
+/* RIGHT — green */
+.cardGood {
+  background: rgba(91, 201, 131, 0.06);
+  border: 1px solid rgba(91, 201, 131, 0.3);
+  border-top: 4px solid #5bc983;
+  box-shadow: 0 0 40px rgba(91, 201, 131, 0.08);
+}
+
+/* Badges */
+.badgeBad,
+.badgeGood {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 4px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.badgeBad {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badgeGood {
+  background: rgba(91, 201, 131, 0.15);
+  color: #5bc983;
+  border: 1px solid rgba(91, 201, 131, 0.3);
+}
+
+/* Card headlines */
+.splitCardHeadline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  margin-bottom: 24px;
+  line-height: 1;
+}
+
+/* Lists */
+.splitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.splitItem {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Icons */
+.iconBad,
+.iconGood {
+  font-size: 0.9rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.iconBad {
+  color: #ef4444;
+}
+
+.iconGood {
+  color: #5bc983;
+}
+
+/* Bottom gradient lines */
+.cardDividerBad {
+  height: 1px;
+  margin-top: 32px;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.3), transparent);
+}
+
+.cardDividerGood {
+  height: 1px;
+  margin-top: 32px;
+  background: linear-gradient(90deg, transparent, rgba(91, 201, 131, 0.3), transparent);
+}
+
+/* ── Pricing teaser ── */
+.pricingTeaser {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  padding-top: 48px;
+  margin-bottom: 20px;
+}
+
+/* ── Consultation strip ── */
+.consultStrip {
+  background: rgba(91, 201, 131, 0.1);
+  border: 1px solid rgba(91, 201, 131, 0.25);
+  border-radius: 12px;
+  padding: 20px 32px;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+}
+
+.consultStripText {
+  flex: 1;
+}
+
+.consultStripHeadline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.consultStripSub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.consultStripBtn {
+  display: inline-block;
+  background: #5bc983;
+  color: #061b2d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.consultStripBtn:hover {
+  background: #3da865;
+  transform: translateY(-2px);
+}
+
+/* ===== PRICING CARDS ===== */
+.cardsSection {
+  background: #f8fafc;
+  padding: 100px 24px;
+}
+
+.cardsInner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Base card */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 24px rgba(6, 27, 45, 0.07);
+  border: 1px solid rgba(6, 27, 45, 0.07);
+  position: relative;
+}
+
+/* Featured card — green border */
+.cardFeatured {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 8px 40px rgba(91, 201, 131, 0.18);
+  border: 2px solid #5bc983;
+  position: relative;
+}
+
+.bestValueBadge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5bc983;
+  color: #061b2d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cardPlanLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5bc983;
+  margin-bottom: 20px;
+}
+
+.cardPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.cardPriceNum {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: #061b2d;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.cardPricePer {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(6, 27, 45, 0.5);
+  font-weight: 500;
+}
+
+.cardDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(6, 27, 45, 0.65);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(6, 27, 45, 0.07);
+}
+
+.cardFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #061b2d;
+  font-weight: 500;
+}
+
+.check {
+  color: #5bc983;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cardBtnNavy {
+  display: block;
+  text-align: center;
+  background: #061b2d;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardBtnNavy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 27, 45, 0.25);
+}
+
+.cardBtnGreen {
+  display: block;
+  text-align: center;
+  background: #5bc983;
+  color: #061b2d;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardBtnGreen:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(91, 201, 131, 0.4);
+}
+
+/* ===== HELP SECTION ===== */
+.helpSection {
+  background: #ffffff;
+  padding: 80px 24px;
+  border-top: 1px solid rgba(6, 27, 45, 0.07);
+}
+
+.helpInner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.helpHeadline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #061b2d;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+
+.helpBody {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  color: rgba(6, 27, 45, 0.65);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.helpLink {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #5bc983;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.helpLink:hover {
+  opacity: 0.75;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 100px 20px 60px;
+  }
+
+  .heroHeadline {
+    font-size: 2.8rem;
+  }
+
+  .heroSubline {
+    font-size: 2rem;
+  }
+
+  .splitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardBad,
+  .cardGood {
+    padding: 32px 24px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .cardFeatured {
+    padding: 32px 24px;
+  }
+
+  .consultStrip {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 20px;
+  }
+
+  .consultStripText {
+    text-align: center;
+  }
+
+  .consultStripBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "bar-ready-lv",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.1",
+    "astro": "^6.0.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

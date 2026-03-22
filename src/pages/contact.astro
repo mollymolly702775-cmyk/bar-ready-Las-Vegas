@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.jsx';
+import styles from './Contact.module.css';
+---
+
+<BaseLayout
+  title="Contact — Bar Ready LV | Free Consultation"
+  description="Contact Bar Ready LV to book a free consultation or schedule your Mock Health and Safety Inspection in Las Vegas."
+  canonical="https://barreadylv.com/contact"
+>
+  <main>
+    {/* HERO BANNER */}
+    <section class={styles.heroBanner}>
+      <div class={styles.heroBannerContent}>
+        <h1 class={styles.heroBannerTitle}>Let's Talk</h1>
+        <p class={styles.heroBannerSub}>
+          We're here to help your bar stay ahead of every inspection.
+        </p>
+      </div>
+    </section>
+
+    {/* CONTACT SECTION */}
+    <section class={styles.contactSection}>
+      <div class={styles.contactContainer}>
+        <div class={`${styles.contactLeft} fade-in`}>
+          <p class={styles.introText}>
+            We treat every bar owner as a partner — not just a client. Whether you run a single neighborhood bar or manage a portfolio of Las Vegas venues, we're ready to help you protect what you've built.
+          </p>
+
+          <div class={styles.infoList}>
+            <div class={styles.infoItem}>
+              <div class={styles.infoIcon}>📍</div>
+              <div>
+                <div class={styles.infoLabel}>Location</div>
+                <div class={styles.infoValue}>Las Vegas, NV</div>
+              </div>
+            </div>
+            <div class={styles.infoItem}>
+              <div class={styles.infoIcon}>✉️</div>
+              <div>
+                <div class={styles.infoLabel}>Email</div>
+                <a href="mailto:contact@barreadylv.com" class={styles.infoLink}>
+                  contact@barreadylv.com
+                </a>
+              </div>
+            </div>
+            <div class={styles.infoItem}>
+              <div class={styles.infoIcon}>⏱</div>
+              <div>
+                <div class={styles.infoLabel}>Response Time</div>
+                <div class={styles.infoValue}>We respond within 1 business day.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class={styles.painBox}>
+            <div class={styles.painBoxIcon}>💡</div>
+            <p class={styles.painBoxText}>
+              Don't wait for a real inspector to find the problems. Let Bar Ready LV find them first.
+            </p>
+          </div>
+
+          <div class={styles.plansPreview}>
+            <div class={styles.planItem}>
+              <span class={styles.planItemLabel}>Monthly Plan</span>
+              <span class={styles.planItemPrice}>$350/month</span>
+            </div>
+            <div class={styles.planItem}>
+              <span class={styles.planItemLabel}>Annual Plan</span>
+              <span class={styles.planItemPrice}>$3,900/year</span>
+            </div>
+          </div>
+        </div>
+
+        <div class={`${styles.contactRight} fade-in`} style="transition-delay: 100ms">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</BaseLayout>

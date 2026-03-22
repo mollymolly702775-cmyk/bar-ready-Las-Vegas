@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HowItWorksSteps from '../components/HowItWorksSteps.jsx';
+import styles from './HowItWorks.module.css';
+---
+
+<BaseLayout
+  title="How It Works — Bar Ready LV | 7-Step Process"
+  description="Our 7-step Mock Health and Safety Inspection process walks your bar through every compliance area before a real inspector does."
+  canonical="https://barreadylv.com/how-it-works"
+>
+  <main>
+    <HowItWorksSteps client:load />
+
+    {/* CTA */}
+    <section class={styles.ctaSection}>
+      <div class={styles.ctaContainer}>
+        <div class={styles.ctaCard}>
+          <span class={styles.ctaLabel}>Next Step</span>
+          <h2 class={`${styles.ctaHeadline} fade-in`}>Ready to Get Your Bar Ready?</h2>
+          <p class={`${styles.ctaSub} fade-in`}>
+            Book your first Mock Health and Safety Inspection and experience the Bar Ready LV process firsthand.
+          </p>
+          <a href="/contact" class={`${styles.ctaBtn} fade-in`}>Book Your Inspection</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</BaseLayout>

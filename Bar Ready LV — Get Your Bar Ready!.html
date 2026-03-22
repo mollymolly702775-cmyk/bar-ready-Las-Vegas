@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bar Ready LV — Get Your Bar Ready!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #5bc983;
+  --green-d: #3da865;
+  --green-l: #7dd99a;
+  --navy: #061b2d;
+  --navy-l: #0c2e4a;
+  --white: #ffffff;
+  --off: #f7f8f6;
+  --text-muted: #5a6a7a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden}
+
+/* ══ NAV ══════════════════════════════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(6,27,45,0.07);
+  padding:0 56px;height:66px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.06em;color:var(--navy);text-decoration:none}
+.nav-logo em{font-style:normal;color:var(--green)}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--navy);font-size:.875rem;font-weight:500;transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.nav-links a.active{border-bottom:2px solid var(--green);padding-bottom:1px}
+.btn-nav{
+  background:var(--green);color:var(--navy);font-family:'DM Sans',sans-serif;
+  font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;
+  padding:10px 22px;border-radius:7px;border:none;cursor:pointer;transition:all .2s;
+}
+.btn-nav:hover{background:var(--green-d);color:#fff;transform:translateY(-1px)}
+
+/* ══ HERO ═════════════════════════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:100px 56px 60px;background:var(--off);position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(91,201,131,.12) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-120px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(91,201,131,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  position:relative;z-index:1;
+}
+
+/* Left */
+.hero-left{animation:fadeUp .8s ease both}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(91,201,131,.13);border:1px solid rgba(91,201,131,.35);
+  border-radius:100px;padding:6px 16px;margin-bottom:28px;
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-d);
+}
+.pill-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,5.5vw,6rem);line-height:.95;color:var(--navy);letter-spacing:.02em;margin-bottom:4px}
+.hero-h1-line2{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,5.5vw,6rem);line-height:.95;letter-spacing:.02em;margin-bottom:32px}
+.hero-h1-line2 .w{color:var(--navy)}.hero-h1-line2 .g{color:var(--green)}
+.hero-desc{font-size:1.05rem;line-height:1.72;color:var(--text-muted);max-width:460px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:14px;margin-bottom:44px}
+.btn-pri{
+  background:var(--green);color:var(--navy);font-family:'DM Sans',sans-serif;
+  font-weight:700;font-size:.95rem;padding:15px 30px;border-radius:9px;border:none;cursor:pointer;
+  transition:all .25s;box-shadow:0 4px 18px rgba(91,201,131,.25);
+}
+.btn-pri:hover{background:var(--green-d);color:#fff;transform:translateY(-3px);box-shadow:0 10px 30px rgba(91,201,131,.35)}
+.btn-sec{
+  background:transparent;color:var(--navy);font-family:'DM Sans',sans-serif;
+  font-weight:600;font-size:.95rem;padding:15px 30px;border-radius:9px;
+  border:2px solid rgba(6,27,45,.25);cursor:pointer;transition:all .25s;
+}
+.btn-sec:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-3px)}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  display:flex;align-items:center;gap:7px;background:#fff;
+  border:1px solid rgba(6,27,45,.1);border-radius:7px;padding:9px 15px;
+  font-size:.8rem;font-weight:500;color:var(--navy);
+  box-shadow:0 1px 4px rgba(0,0,0,.05);transition:all .2s;
+}
+.chip:hover{border-color:var(--green);box-shadow:0 3px 10px rgba(91,201,131,.15)}
+.chip-check{color:var(--green);font-weight:700;font-size:.85rem}
+
+/* Right — Vegas Sign */
+.hero-right{display:flex;justify-content:center;align-items:center;animation:fadeUp .8s .15s ease both}
+.sign-wrap{position:relative;width:400px;height:480px}
+.sign-glow{
+  position:absolute;inset:-50px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(91,201,131,.18) 0%,transparent 65%);
+  animation:gPulse 3s ease-in-out infinite;pointer-events:none;
+}
+.sign-body{
+  position:relative;width:100%;height:100%;
+  background:var(--navy);border-radius:18px;overflow:hidden;
+  box-shadow:0 0 0 2.5px var(--green),0 0 25px rgba(91,201,131,.3),0 30px 70px rgba(6,27,45,.45);
+}
+.sign-body::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 40%,rgba(91,201,131,.07) 0%,transparent 60%);
+  pointer-events:none;
+}
+.bulbs{position:absolute;inset:0;pointer-events:none;z-index:2}
+.bulb{
+  position:absolute;width:9px;height:9px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 5px 2px rgba(91,201,131,.6);
+}
+.sign-inner{
+  position:absolute;inset:28px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;z-index:3;gap:0;
+}
+.sign-star-top{font-size:1.6rem;margin-bottom:4px;animation:starBlink 2.2s ease-in-out infinite;filter:drop-shadow(0 0 6px var(--green))}
+.sign-eyebrow{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:2px}
+.sign-bar{
+  font-family:'Bebas Neue',sans-serif;font-size:5.2rem;line-height:.9;letter-spacing:.05em;
+  color:#fff;text-shadow:0 0 8px rgba(255,255,255,.4),0 0 20px rgba(255,255,255,.15);
+  animation:neonBar 5s ease-in-out infinite;
+}
+.sign-ready{
+  font-family:'Bebas Neue',sans-serif;font-size:4.2rem;line-height:.9;letter-spacing:.08em;
+  color:var(--green);
+  text-shadow:0 0 8px var(--green),0 0 20px rgba(91,201,131,.6),0 0 50px rgba(91,201,131,.3);
+  animation:neonGreen 5s ease-in-out infinite;margin-bottom:8px;
+}
+.sign-divider{width:90px;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);margin:10px auto}
+.sign-lv-row{display:flex;align-items:center;gap:12px}
+.sign-diamond{width:8px;height:8px;background:var(--green);transform:rotate(45deg);box-shadow:0 0 6px var(--green);animation:starBlink 1.8s ease-in-out infinite}
+.sign-lv{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.25em;color:rgba(255,255,255,.9);text-shadow:0 0 8px rgba(255,255,255,.25)}
+.sign-bottom{display:flex;gap:8px;margin-top:12px}
+.sign-bottom span{color:var(--green);font-size:.9rem;text-shadow:0 0 6px var(--green);animation:starBlink 1.5s ease-in-out infinite}
+.sign-bottom span:nth-child(2){animation-delay:.4s}.sign-bottom span:nth-child(3){animation-delay:.8s}
+/* floating decor */
+.float-a{position:absolute;font-size:2.6rem;bottom:24px;right:-20px;animation:floatA 3.2s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(91,201,131,.5))}
+.float-b{position:absolute;font-size:2.2rem;top:40px;left:-18px;animation:floatB 2.8s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(255,255,255,.3))}
+
+/* ══ PROBLEMS ════════════════════════════════════════════════════════════ */
+.problems{padding:110px 56px;background:#fff}
+.sec-label{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--green-d);margin-bottom:14px}
+.sec-label::before{content:'';width:22px;height:2px;background:var(--green)}
+.prob-header{text-align:center;margin-bottom:64px}
+.prob-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,4vw,3.8rem);color:var(--navy);line-height:1.05;max-width:700px;margin:0 auto 12px}
+.prob-header p{color:var(--green-d);font-size:1rem;font-weight:500}
+.prob-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard{
+  background:#f8faf9;border:1px solid #e4ecf0;border-radius:18px;padding:36px 28px 28px;
+  position:relative;overflow:hidden;cursor:default;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease,border-color .35s ease;
+}
+.pcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transition:transform .3s ease;transform-origin:left}
+.pcard:hover{transform:translateY(-10px);box-shadow:0 24px 64px rgba(6,27,45,.11);border-color:rgba(91,201,131,.4);background:#fff}
+.pcard:hover::after{transform:scaleX(1)}
+.card-graphic{
+  width:100%;height:150px;background:#fff;border:1px solid #e4ecf0;
+  border-radius:12px;margin-bottom:24px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.ctag{display:inline-block;background:rgba(91,201,131,.12);color:var(--green-d);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 11px;border-radius:5px;margin-bottom:10px}
+.ctitle{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.03em;color:var(--navy);margin-bottom:10px}
+.ctext{font-size:.875rem;line-height:1.68;color:var(--text-muted)}
+.chover{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-top:18px;padding-top:18px;border-top:1px solid #e4ecf0;
+  opacity:0;transform:translateY(8px);transition:all .3s ease .08s;pointer-events:none;
+}
+.pcard:hover .chover{opacity:1;transform:translateY(0)}
+.cstat{text-align:center;background:#f0fdf6;border-radius:9px;padding:12px 8px}
+.cstat-n{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--green-d);line-height:1}
+.cstat-l{font-size:.68rem;color:var(--text-muted);margin-top:3px;line-height:1.3}
+
+/* SVG graphics in cards */
+.g-svg{width:100%;height:100%;overflow:hidden}
+
+/* ══ HOW IT WORKS ═════════════════════════════════════════════════════════ */
+.hiw{padding:110px 56px;background:var(--navy);position:relative;overflow:hidden}
+.hiw::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 5%,var(--green) 40%,var(--green) 60%,transparent 95%);box-shadow:0 0 18px rgba(91,201,131,.5)}
+.hiw-bg{position:absolute;inset:0;pointer-events:none}
+.hiw-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hiw-hdr{text-align:center;margin-bottom:68px}
+.hiw-hdr .sec-label{color:rgba(91,201,131,.75);display:flex;justify-content:center}
+.hiw-hdr .sec-label::before{background:rgba(91,201,131,.4)}
+.hiw-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.2rem);color:#fff;line-height:1;margin-bottom:10px;text-shadow:0 0 40px rgba(255,255,255,.06)}
+.hiw-hdr h2 em{font-style:normal;color:var(--green);text-shadow:0 0 20px rgba(91,201,131,.4)}
+.hiw-hdr p{color:rgba(255,255,255,.42);font-size:.95rem}
+.hiw-layout{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start}
+/* step nav */
+.snav{display:flex;flex-direction:column;gap:6px;position:sticky;top:100px}
+.snav-item{
+  display:flex;align-items:center;gap:14px;padding:13px 16px;
+  border-radius:10px;cursor:pointer;transition:all .22s;border:1px solid transparent;
+}
+.snav-item:hover{background:rgba(91,201,131,.07);border-color:rgba(91,201,131,.18)}
+.snav-item.active{background:rgba(91,201,131,.11);border-color:var(--green)}
+.snum{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;flex-shrink:0;transition:all .22s;
+}
+.snav-item.active .snum{background:var(--green);color:var(--navy);box-shadow:0 0 14px rgba(91,201,131,.5)}
+.snav-item.done .snum{background:rgba(91,201,131,.25);color:var(--green-l)}
+.slabel{font-size:.83rem;color:rgba(255,255,255,.42);font-weight:500;transition:color .22s}
+.snav-item.active .slabel{color:#fff}.snav-item:hover .slabel{color:rgba(255,255,255,.8)}
+/* step detail */
+.sdetail{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;padding:48px 48px 44px;min-height:420px;position:relative;overflow:hidden;
+}
+.sdetail::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--green);box-shadow:0 0 12px rgba(91,201,131,.4)}
+.sbig{position:absolute;right:36px;bottom:20px;font-family:'Bebas Neue',sans-serif;font-size:9rem;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none;transition:all .4s}
+.sbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(91,201,131,.14);border:1px solid rgba(91,201,131,.28);border-radius:6px;padding:4px 13px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:22px}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:2.7rem;color:#fff;letter-spacing:.02em;line-height:1.05;margin-bottom:16px;text-shadow:0 0 30px rgba(255,255,255,.08)}
+.sdesc{color:rgba(255,255,255,.6);font-size:1rem;line-height:1.72;margin-bottom:28px;max-width:520px}
+.spts{display:flex;flex-direction:column;gap:10px}
+.spt{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:rgba(255,255,255,.65)}
+.spt::before{content:'→';color:var(--green);flex-shrink:0;margin-top:1px;font-weight:700}
+.sprog{display:flex;gap:7px;margin-top:32px}
+.pdot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14);cursor:pointer;transition:all .22s;flex-shrink:0}
+.pdot.active{background:var(--green);box-shadow:0 0 8px rgba(91,201,131,.55);width:28px;border-radius:5px}
+/* vegas neon accents in hiw */
+.neon-accent{position:absolute;pointer-events:none}
+.na1{bottom:60px;left:30px;width:3px;height:80px;background:linear-gradient(180deg,transparent,var(--green),transparent);box-shadow:0 0 8px rgba(91,201,131,.5);border-radius:2px;animation:naFlick 3s ease-in-out infinite}
+.na2{top:120px;right:40px;width:60px;height:3px;background:linear-gradient(90deg,transparent,rgba(91,201,131,.3),transparent);border-radius:2px}
+.na3{bottom:200px;right:100px;width:18px;height:18px;border:2px solid rgba(91,201,131,.2);transform:rotate(45deg);border-radius:2px}
+
+/* ══ STATS SECTION ════════════════════════════════════════════════════════ */
+.stats-sec{padding:110px 56px;background:#fff}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.stats-left .sec-label{display:flex}
+.stats-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,3.6rem);color:var(--navy);line-height:1.05;margin-bottom:18px}
+.stats-left h2 em{font-style:normal;color:var(--green)}
+.stats-left p{color:var(--text-muted);font-size:1rem;line-height:1.72;max-width:400px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.scard{background:var(--navy);border-radius:16px;padding:28px 22px;position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s}
+.scard:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(6,27,45,.2)}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:var(--green)}
+.scard:nth-child(2){margin-top:28px}.scard:nth-child(4){margin-top:-28px}
+.sv{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--green);text-shadow:0 0 18px rgba(91,201,131,.25);line-height:1;margin-bottom:6px}
+.sl{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.45}
+.scard::after{position:absolute;bottom:12px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:4rem;color:rgba(255,255,255,.03);line-height:1}
+.scard:nth-child(1)::after{content:'01'}.scard:nth-child(2)::after{content:'02'}
+.scard:nth-child(3)::after{content:'03'}.scard:nth-child(4)::after{content:'04'}
+
+/* ══ FINAL CTA ════════════════════════════════════════════════════════════ */
+.fcta{
+  background:var(--navy);padding:110px 56px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.fcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(91,201,131,.14) 0%,transparent 55%);pointer-events:none}
+.fcta::after{content:'';position:absolute;top:0;left:5%;right:5%;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent)}
+.fcta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.fcta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,5rem);color:#fff;line-height:.95;margin-bottom:18px}
+.fcta h2 em{font-style:normal;color:var(--green);text-shadow:0 0 30px rgba(91,201,131,.45)}
+.fcta p{color:rgba(255,255,255,.55);font-size:1.05rem;margin-bottom:38px;line-height:1.68}
+.fcta-btns{display:flex;gap:14px;justify-content:center}
+.btn-gl{background:var(--green);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;padding:17px 38px;border-radius:10px;border:none;cursor:pointer;transition:all .25s;box-shadow:0 0 28px rgba(91,201,131,.25)}
+.btn-gl:hover{background:#fff;transform:translateY(-3px);box-shadow:0 0 40px rgba(91,201,131,.4)}
+.btn-ol{background:transparent;color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;padding:17px 38px;border-radius:10px;border:1.5px solid rgba(255,255,255,.25);cursor:pointer;transition:all .25s}
+.btn-ol:hover{background:rgba(255,255,255,.05);border-color:#fff;transform:translateY(-3px)}
+
+/* ══ FOOTER ════════════════════════════════════════════════════════════════ */
+footer{background:#030f1a;padding:22px 56px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.28)}
+footer .flogo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.35)}
+footer .flogo em{font-style:normal;color:rgba(91,201,131,.55)}
+
+/* ══ KEYFRAMES ════════════════════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+@keyframes gPulse{0%,100%{opacity:.7;transform:scale(.95)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes starBlink{0%,100%{opacity:1}50%{opacity:.55}}
+@keyframes neonBar{0%,90%,100%{opacity:1;text-shadow:0 0 8px rgba(255,255,255,.4),0 0 20px rgba(255,255,255,.15)}92%{opacity:.8;text-shadow:0 0 4px rgba(255,255,255,.2)}94%{opacity:1;text-shadow:0 0 8px rgba(255,255,255,.4),0 0 20px rgba(255,255,255,.15)}96%{opacity:.85}}
+@keyframes neonGreen{0%,88%,100%{opacity:1;text-shadow:0 0 8px var(--green),0 0 20px rgba(91,201,131,.6),0 0 50px rgba(91,201,131,.3)}90%{opacity:.75;text-shadow:0 0 4px var(--green)}92%{opacity:1;text-shadow:0 0 8px var(--green),0 0 20px rgba(91,201,131,.6),0 0 50px rgba(91,201,131,.3)}}
+@keyframes floatA{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-14px) rotate(6deg)}}
+@keyframes floatB{0%,100%{transform:translateY(0) rotate(8deg)}50%{transform:translateY(-12px) rotate(-6deg)}}
+@keyframes bulbOn{0%,100%{opacity:.25;box-shadow:0 0 2px rgba(91,201,131,.3)}50%{opacity:1;box-shadow:0 0 7px 3px rgba(91,201,131,.7),0 0 14px rgba(91,201,131,.35)}}
+@keyframes naFlick{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes slideIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">Bar Ready <em>LV</em></a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="btn-nav">Book Inspection</button>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-pill"><span class="pill-dot"></span>Mock Health &amp; Safety Inspections</div>
+      <h1 class="hero-h1">Stop Guessing.</h1>
+      <div class="hero-h1-line2"><span class="w">Start </span><span class="g">Passing.</span></div>
+      <p class="hero-desc">Bar Ready LV helps bars and restaurants in Las Vegas stay ahead of health and safety requirements through professional Mock Health and Safety Inspections — so you never have to worry about what a real inspector might find.</p>
+      <div class="hero-ctas">
+        <button class="btn-pri">Book an Inspection</button>
+        <button class="btn-sec">See How It Works</button>
+      </div>
+      <div class="hero-chips">
+        <div class="chip"><span class="chip-check">✓</span> Las Vegas Based</div>
+        <div class="chip"><span class="chip-check">✓</span> 2+ Years Experience</div>
+        <div class="chip"><span class="chip-check">✓</span> 0 Surprise Closures</div>
+        <div class="chip"><span class="chip-check">✓</span> 100% Inspection Coverage</div>
+      </div>
+    </div>
+
+    <!-- Right — Vegas Sign -->
+    <div class="hero-right">
+      <div class="sign-wrap">
+        <div class="sign-glow"></div>
+        <div class="sign-body" id="signBody">
+          <div class="bulbs" id="bulbs"></div>
+          <div class="sign-inner">
+            <div class="sign-star-top">★</div>
+            <div class="sign-eyebrow">Welcome to</div>
+            <div class="sign-bar">BAR</div>
+            <div class="sign-ready">READY</div>
+            <div class="sign-divider"></div>
+            <div class="sign-lv-row">
+              <div class="sign-diamond"></div>
+              <div class="sign-lv">LAS VEGAS</div>
+              <div class="sign-diamond"></div>
+            </div>
+            <div class="sign-bottom">
+              <span>♦</span><span>★</span><span>♦</span>
+            </div>
+          </div>
+          <div class="float-a">🍸</div>
+          <div class="float-b">🥃</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEMS ═══════════════════════════════════════════════════════════ -->
+<section class="problems">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="prob-header">
+      <div class="sec-label" style="margin:0 auto 14px;display:inline-flex">The Stakes</div>
+      <h2>One Bad Inspection Can Close Your Bar Overnight.</h2>
+      <p>We help you find the problems before the inspector does.</p>
+    </div>
+
+    <div class="prob-grid">
+
+      <!-- Card 1: Surprise Closure -->
+      <div class="pcard">
+        <div class="card-graphic">
+          <svg class="g-svg" viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="150" fill="#fff2f2"/>
+            <!-- closed sign -->
+            <rect x="70" y="30" width="120" height="70" rx="8" fill="#ef4444" opacity=".12"/>
+            <rect x="70" y="30" width="120" height="70" rx="8" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="130" y="62" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="20" fill="#ef4444" letter-spacing="2">CLOSED</text>
+            <text x="130" y="80" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9" fill="#ef4444" opacity=".7">by order of health dept.</text>
+            <!-- warning lines -->
+            <line x1="40" y1="112" x2="220" y2="112" stroke="#ef4444" stroke-width="6" stroke-dasharray="14 8" opacity=".25"/>
+            <!-- door shape hint -->
+            <rect x="110" y="110" width="40" height="30" rx="3" fill="none" stroke="rgba(6,27,45,.1)" stroke-width="1"/>
+            <circle cx="143" cy="126" r="2.5" fill="rgba(6,27,45,.15)"/>
+          </svg>
+        </div>
+        <div class="ctag">Risk #1</div>
+        <div class="ctitle">Surprise Closure</div>
+        <div class="ctext">One failed inspection can shut your doors — sometimes for days. That's lost revenue, lost staff trust, and a very public mark on your business.</div>
+        <div class="chover">
+          <div class="cstat"><div class="cstat-n">Days</div><div class="cstat-l">Average closure duration</div></div>
+          <div class="cstat"><div class="cstat-n">$0</div><div class="cstat-l">Revenue while closed</div></div>
+        </div>
+      </div>
+
+      <!-- Card 2: Reputation -->
+      <div class="pcard">
+        <div class="card-graphic">
+          <svg class="g-svg" viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="150" fill="#fffbf0"/>
+            <!-- phone shape -->
+            <rect x="90" y="15" width="80" height="120" rx="10" fill="none" stroke="rgba(6,27,45,.1)" stroke-width="1.5"/>
+            <rect x="90" y="15" width="80" height="120" rx="10" fill="rgba(6,27,45,.02)"/>
+            <!-- yelp-style stars -->
+            <text x="130" y="55" text-anchor="middle" font-size="18" fill="#f59e0b">★</text>
+            <text x="110" y="55" text-anchor="middle" font-size="18" fill="#f59e0b">★</text>
+            <text x="150" y="55" text-anchor="middle" font-size="18" fill="#f59e0b" opacity=".2">★</text>
+            <text x="130" y="72" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="8" fill="#ef4444" font-weight="600" letter-spacing="1">HEALTH SCORE: POOR</text>
+            <text x="130" y="85" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="7.5" fill="rgba(6,27,45,.4)">Visible to all visitors</text>
+            <!-- review dots -->
+            <rect x="98" y="95" width="64" height="1" fill="rgba(6,27,45,.06)"/>
+            <rect x="98" y="102" width="48" height="7" rx="3" fill="rgba(239,68,68,.12)"/>
+            <rect x="98" y="113" width="55" height="7" rx="3" fill="rgba(239,68,68,.08)"/>
+          </svg>
+        </div>
+        <div class="ctag">Risk #2</div>
+        <div class="ctitle">Your Reputation on Yelp</div>
+        <div class="ctext">A bad public health score doesn't stay private. Customers check ratings before choosing where to go. A failed inspection sends them to your competitors.</div>
+        <div class="chover">
+          <div class="cstat"><div class="cstat-n">Public</div><div class="cstat-l">Scores are visible to all</div></div>
+          <div class="cstat"><div class="cstat-n">Lost</div><div class="cstat-l">Customer traffic drops fast</div></div>
+        </div>
+      </div>
+
+      <!-- Card 3: Fines -->
+      <div class="pcard">
+        <div class="card-graphic">
+          <svg class="g-svg" viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
+            <rect width="260" height="150" fill="#f0fdf4"/>
+            <!-- invoice / fine stack -->
+            <rect x="65" y="70" width="130" height="65" rx="6" fill="#fff" stroke="rgba(6,27,45,.1)" stroke-width="1"/>
+            <rect x="60" y="55" width="130" height="65" rx="6" fill="#fff" stroke="rgba(6,27,45,.1)" stroke-width="1"/>
+            <rect x="55" y="40" width="130" height="65" rx="6" fill="#fff" stroke="rgba(6,27,45,.12)" stroke-width="1.2"/>
+            <!-- top invoice content -->
+            <text x="80" y="57" font-family="'DM Sans',sans-serif" font-size="7.5" fill="rgba(6,27,45,.4)" letter-spacing=".5">VIOLATION NOTICE</text>
+            <text x="80" y="70" font-family="'Bebas Neue',sans-serif" font-size="13" fill="#ef4444" letter-spacing="1">$750 FINE</text>
+            <line x1="60" y1="76" x2="180" y2="76" stroke="rgba(6,27,45,.06)" stroke-width="1"/>
+            <text x="80" y="86" font-family="'DM Sans',sans-serif" font-size="6.5" fill="rgba(6,27,45,.3)">Temperature violation × 3</text>
+            <text x="80" y="96" font-family="'DM Sans',sans-serif" font-size="6.5" fill="rgba(6,27,45,.3)">Improper food storage</text>
+            <!-- money icon -->
+            <text x="155" y="70" font-size="22">💸</text>
+          </svg>
+        </div>
+        <div class="ctag">Risk #3</div>
+        <div class="ctitle">Fines Add Up Fast</div>
+        <div class="ctext">Health code violations come with financial penalties that stack quickly — on top of the operational chaos of a real inspection gone wrong.</div>
+        <div class="chover">
+          <div class="cstat"><div class="cstat-n">Stack</div><div class="cstat-l">Fines per each violation</div></div>
+          <div class="cstat"><div class="cstat-n">Fast</div><div class="cstat-l">Can accrue in one visit</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ════════════════════════════════════════════════════════ -->
+<section class="hiw" id="how-it-works">
+  <div class="hiw-bg">
+    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 15% 60%,rgba(91,201,131,.05) 0%,transparent 45%),radial-gradient(circle at 85% 25%,rgba(91,201,131,.04) 0%,transparent 40%)"></div>
+    <!-- decorative neon accents -->
+    <div class="neon-accent na1"></div>
+    <div class="neon-accent na2"></div>
+    <div class="neon-accent na3"></div>
+    <!-- star dots -->
+    <div style="position:absolute;top:180px;left:55px;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:rgba(91,201,131,.15)">★ ★ ★</div>
+    <div style="position:absolute;bottom:180px;right:55px;font-family:'Bebas Neue',sans-serif;font-size:.8rem;color:rgba(91,201,131,.12)">♦ ♦ ♦</div>
+  </div>
+  <div class="hiw-inner">
+    <div class="hiw-hdr">
+      <div class="sec-label">The Full Process</div>
+      <h2>The Complete <em>7-Step</em> Journey</h2>
+      <p>From discovery to your next scheduled inspection — here's exactly how it works.</p>
+    </div>
+    <div class="hiw-layout">
+      <div class="snav" id="snavEl"></div>
+      <div class="sdetail" id="sdetail">
+        <div class="sbig" id="sbig">01</div>
+        <div id="scontent"></div>
+        <div class="sprog" id="sprog"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ════════════════════════════════════════════════════════════ -->
+<section class="stats-sec">
+  <div class="stats-inner">
+    <div class="stats-left">
+      <div class="sec-label">By the Numbers</div>
+      <h2>Built for Las Vegas.<br>Built for <em>Every Bar.</em></h2>
+      <p>From individual bar owners to casino hotel groups and large-scale restaurant investment firms, we serve the full spectrum of Las Vegas hospitality.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="scard"><div class="sv">2+</div><div class="sl">Years Serving Las Vegas Hospitality</div></div>
+      <div class="scard"><div class="sv">100%</div><div class="sl">Mock Inspection Coverage on Every Visit</div></div>
+      <div class="scard"><div class="sv">0</div><div class="sl">Surprise Closures for Bar Ready LV Clients</div></div>
+      <div class="scard"><div class="sv">LV</div><div class="sl">The Only Dedicated Mock Inspection Service in Las Vegas</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ════════════════════════════════════════════════════════ -->
+<section class="fcta">
+  <div class="fcta-inner">
+    <h2>Ready to Protect<br><em>Your Bar?</em></h2>
+    <p>Book a Mock Health and Safety Inspection today and stop leaving your license to chance.</p>
+    <div class="fcta-btns">
+      <button class="btn-gl">Get Your Bar Ready</button>
+      <button class="btn-ol">View Pricing</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════════════ -->
+<footer>
+  <span class="flogo">Bar Ready <em>LV</em></span>
+  <span>© 2026 Bar Ready LV — Las Vegas, Nevada</span>
+  <span>Get your Bar Ready!</span>
+</footer>
+
+<script>
+/* ── VEGAS SIGN BULBS ─────────────────────────────────────────────── */
+(function(){
+  const cont = document.getElementById('bulbs');
+  const body = document.getElementById('signBody');
+  const W = body.offsetWidth || 400;
+  const H = body.offsetHeight || 480;
+  const spacing = 24;
+  const pad = 12;
+  const pts = [];
+
+  for(let x = pad; x <= W - pad; x += spacing) pts.push([x, pad]);
+  for(let y = pad + spacing; y <= H - pad; y += spacing) pts.push([W - pad, y]);
+  for(let x = W - pad - spacing; x >= pad; x -= spacing) pts.push([x, H - pad]);
+  for(let y = H - pad - spacing; y > pad; y -= spacing) pts.push([pad, y]);
+
+  pts.forEach((p, i) => {
+    const b = document.createElement('div');
+    b.className = 'bulb';
+    b.style.cssText = `left:${p[0]-4.5}px;top:${p[1]-4.5}px;animation:bulbOn 1.6s ease-in-out ${((i*0.12)%1.6).toFixed(2)}s infinite`;
+    cont.appendChild(b);
+  });
+})();
+
+/* ── 7-STEP HOW IT WORKS ──────────────────────────────────────────── */
+const steps = [
+  {
+    num:'01', label:'Discovery',
+    title:'You Find Bar Ready LV',
+    desc:'Bars and restaurants across Las Vegas discover Bar Ready LV through targeted advertising — reaching owners right when compliance is on their minds.',
+    pts:['Google, Facebook & Instagram ad campaigns','Laser-focused on Las Vegas hospitality operators','Clear message: protect your bar before the real inspector arrives']
+  },
+  {
+    num:'02', label:'Booking',
+    title:'Book Your Inspection',
+    desc:'Scheduling is fast and simple. Pick your date, confirm your bar location, and you\'re locked in. No complicated back-and-forth — just a confirmed appointment.',
+    pts:['Quick, straightforward booking process','Flexible scheduling around your operating hours','Immediate booking confirmation provided']
+  },
+  {
+    num:'03', label:'Pre-Inspection Outreach',
+    title:'We Prepare You Ahead of Time',
+    desc:'Before we ever arrive, you\'ll receive a detailed welcome email introducing Bar Ready LV and a full outline of everything your Mock Health and Safety Inspection will cover.',
+    pts:['Welcome email with company overview and background','Detailed document listing every area of inspection coverage','Sets clear expectations so there are no day-of surprises']
+  },
+  {
+    num:'04', label:'Day-Of Confirmation',
+    title:'Day-Of Check-In',
+    desc:'On the morning of your inspection, we reach out via both email and text to confirm the appointment time and location. No no-shows, no last-minute confusion.',
+    pts:['Email and SMS appointment confirmation sent same morning','Time and location verified with the client','Any remaining questions addressed before we arrive']
+  },
+  {
+    num:'05', label:'On-Site Inspection',
+    title:'We Come to Your Bar',
+    desc:'Our team arrives on-site and performs the full Mock Health and Safety Inspection — walking through every area, system, and compliance point exactly as a real health inspector would.',
+    pts:['Full on-site visit at your bar or restaurant','Comprehensive inspection walkthrough of all compliance areas','Real health inspection standards and criteria applied','Every risk area assessed and documented thoroughly']
+  },
+  {
+    num:'06', label:'Results Delivery',
+    title:'Get Your Detailed Report',
+    desc:'After the inspection, you receive a thorough Inspection Results Report delivered to your inbox within 1–2 business days — complete with findings and actionable corrections.',
+    pts:['Detailed Inspection Results Report delivered via email','Delivered within 1–2 business days after the inspection','Clear violation findings organized by risk level','Actionable steps for correcting every issue identified']
+  },
+  {
+    num:'07', label:'Retention',
+    title:'Stay Protected. Month After Month.',
+    desc:'We confirm your next month\'s inspection and close out with a thank-you message — keeping your compliance calendar on track and your bar protected on an ongoing basis.',
+    pts:['Next monthly inspection appointment confirmed','Final thank-you and follow-up message sent','Consistent monthly cadence keeps you perpetually protected','Long-term compliance partnership established with your bar']
+  }
+];
+
+let active = 0;
+let timer;
+
+function renderNav(){
+  document.getElementById('snavEl').innerHTML = steps.map((s,i)=>`
+    <div class="snav-item ${i===active?'active':''} ${i<active?'done':''}" onclick="pick(${i})">
+      <div class="snum">${i<active?'✓':s.num}</div>
+      <div class="slabel">${s.label}</div>
+    </div>`).join('');
+}
+
+function renderDetail(){
+  const s = steps[active];
+  document.getElementById('sbig').textContent = s.num;
+  document.getElementById('scontent').innerHTML = `
+    <div class="sbadge">Step ${s.num} of 07</div>
+    <div class="stitle">${s.title}</div>
+    <div class="sdesc">${s.desc}</div>
+    <div class="spts">${s.pts.map(p=>`<div class="spt">${p}</div>`).join('')}</div>`;
+  document.getElementById('sprog').innerHTML = steps.map((_,i)=>`
+    <div class="pdot ${i===active?'active':''}" onclick="pick(${i})"></div>`).join('');
+  document.getElementById('scontent').style.animation = 'slideIn .35s ease both';
+  setTimeout(()=>{ const el = document.getElementById('scontent'); if(el) el.style.animation = ''; }, 360);
+}
+
+function pick(i){ active=i; renderNav(); renderDetail(); resetTimer(); }
+function advance(){ active=(active+1)%7; renderNav(); renderDetail(); }
+function resetTimer(){ clearInterval(timer); timer=setInterval(advance,4200); }
+
+document.getElementById('how-it-works').addEventListener('mouseenter',()=>clearInterval(timer));
+document.getElementById('how-it-works').addEventListener('mouseleave',resetTimer);
+
+renderNav(); renderDetail(); resetTimer();
+
+/* ── SCROLL REVEAL ────────────────────────────────────────────────── */
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll('.pcard,.scard,.stats-left').forEach(el=>{
+  el.style.cssText += 'opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease';
+  revObs.observe(el);
+});
+</script>
+</body>
+</html>

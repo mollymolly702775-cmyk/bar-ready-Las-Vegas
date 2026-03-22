@@ -1,0 +1,55 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Bar Ready LV — Mock Health and Safety Inspections Las Vegas',
+  description = 'Bar Ready LV performs Mock Health and Safety Inspections for bars and restaurants in Las Vegas. Protect your bar from surprise closures, fines, and failed inspections.',
+  canonical = 'https://barreadylv.com/',
+} = Astro.props;
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Bar Ready LV",
+  "description": "Mock Health and Safety Inspections for bars and restaurants in Las Vegas, Nevada.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "addressCountry": "US"
+  },
+  "priceRange": "$$",
+  "url": "https://barreadylv.com",
+  "areaServed": "Las Vegas, Nevada"
+});
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:site_name" content="Bar Ready LV" />
+    <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>

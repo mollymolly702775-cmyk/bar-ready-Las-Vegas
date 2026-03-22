@@ -1,0 +1,93 @@
+---
+import styles from './Navbar.module.css';
+const pathname = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(href + '/');
+}
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<nav class={styles.nav}>
+  <a href="/" class={styles.logo} id="nav-logo">
+    <img src="/logo.svg" alt="Bar Ready LV" class={styles.logoImg} height="96" width="auto" />
+  </a>
+
+  <div class={styles.links}>
+    {links.map(({ href, label }) => (
+      <a
+        href={href}
+        class={isActive(href) ? `${styles.link} ${styles.active}` : styles.link}
+      >{label}</a>
+    ))}
+    <a href="/contact" class={styles.ctaBtn}>Book Inspection</a>
+  </div>
+
+  <button
+    class={styles.hamburger}
+    id="hamburger-btn"
+    aria-label="Toggle menu"
+  >
+    <span class={styles.bar}></span>
+    <span class={styles.bar}></span>
+    <span class={styles.bar}></span>
+  </button>
+
+  <div class={styles.mobileMenu} id="mobile-menu" style="display:none;">
+    {links.map(({ href, label }) => (
+      <a
+        href={href}
+        class={styles.mobileLink}
+      >{label}</a>
+    ))}
+    <a href="/contact" class={styles.mobileCta}>Book Inspection</a>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+  let open = false;
+
+  function toggleMenu() {
+    open = !open;
+    if (menu) menu.style.display = open ? 'flex' : 'none';
+    if (btn) btn.classList.toggle('hamburger-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  if (btn) btn.addEventListener('click', toggleMenu);
+
+  // Close menu on link click
+  if (menu) {
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        open = false;
+        menu.style.display = 'none';
+        if (btn) btn.classList.remove('hamburger-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
+
+<style>
+  :global(.hamburger-open .bar:nth-child(1)) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  :global(.hamburger-open .bar:nth-child(2)) {
+    opacity: 0;
+  }
+  :global(.hamburger-open .bar:nth-child(3)) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+</style>
