@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'Bar Ready LV — Mock Health and Safety Inspections Las Vegas',
-  description = 'Bar Ready LV performs Mock Health and Safety Inspections for bars and restaurants in Las Vegas. Protect your bar from surprise closures, fines, and failed inspections.',
+  title = 'Bar Ready LV | Mock Health and Safety Inspections in Las Vegas',
+  description = 'Bar Ready LV performs Mock Health and Safety Inspections for bars and restaurants in Las Vegas. Stay compliant, avoid costly fines and closures, and keep customers walking through the door. Get your Bar Ready!',
   canonical = 'https://barreadylv.com/',
 } = Astro.props;
 
@@ -40,8 +40,18 @@ const jsonLd = JSON.stringify({
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <meta property="og:site_name" content="Bar Ready LV" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content="Bar Ready LV" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://barreadylv.com/logo.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://barreadylv.com/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />

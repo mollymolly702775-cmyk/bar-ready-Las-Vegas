@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContactForm from '../components/ContactForm.jsx';
 import styles from './Contact.module.css';
 ---
 
@@ -37,19 +36,12 @@ import styles from './Contact.module.css';
               </div>
             </div>
             <div class={styles.infoItem}>
-              <div class={styles.infoIcon}>✉️</div>
+              <div class={styles.infoIcon}>📞</div>
               <div>
-                <div class={styles.infoLabel}>Email</div>
-                <a href="mailto:contact@barreadylv.com" class={styles.infoLink}>
-                  contact@barreadylv.com
+                <div class={styles.infoLabel}>Phone</div>
+                <a href="tel:7026596733" class={styles.infoLink}>
+                  702-659-6733
                 </a>
-              </div>
-            </div>
-            <div class={styles.infoItem}>
-              <div class={styles.infoIcon}>⏱</div>
-              <div>
-                <div class={styles.infoLabel}>Response Time</div>
-                <div class={styles.infoValue}>We respond within 1 business day.</div>
               </div>
             </div>
           </div>
@@ -74,7 +66,14 @@ import styles from './Contact.module.css';
         </div>
 
         <div class={`${styles.contactRight} fade-in`} style="transition-delay: 100ms">
-          <ContactForm client:load />
+          <div style="display:flex;justify-content:center;">
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/lgdllc1/30min"
+              style="min-width:320px;height:700px;width:100%;"
+            ></div>
+          </div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async is:inline></script>
         </div>
       </div>
     </section>
