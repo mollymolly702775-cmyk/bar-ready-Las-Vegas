@@ -35,59 +35,62 @@ const links = [
   <button
     class={styles.hamburger}
     id="hamburger-btn"
-    aria-label="Toggle menu"
+    aria-label="Open menu"
   >
     <span class={styles.bar}></span>
     <span class={styles.bar}></span>
     <span class={styles.bar}></span>
   </button>
-
-  <div class={styles.mobileMenu} id="mobile-menu" style="display:none;">
-    {links.map(({ href, label }) => (
-      <a
-        href={href}
-        class={styles.mobileLink}
-      >{label}</a>
-    ))}
-    <a href="/contact" class={styles.mobileCta}>Book Inspection</a>
-  </div>
 </nav>
 
-<script is:inline>
-  const btn = document.getElementById('hamburger-btn');
-  const menu = document.getElementById('mobile-menu');
-  let open = false;
+{/* Full-screen mobile menu — rendered outside <nav> so it truly covers everything */}
+<div class={styles.mobileMenu} id="mobile-menu" aria-hidden="true">
+  <div class={styles.mobileMenuTop}>
+    <a href="/" class={styles.mobileLogo}>
+      <img src="/logo.svg" alt="Bar Ready LV" class={styles.mobileLogoImg} height="72" width="auto" />
+    </a>
+    <button class={styles.closeBtn} id="mobile-close-btn" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#061b2d" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
 
-  function toggleMenu() {
-    open = !open;
-    if (menu) menu.style.display = open ? 'flex' : 'none';
-    if (btn) btn.classList.toggle('hamburger-open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+  <div class={styles.mobileLinks}>
+    {links.map(({ href, label }) => (
+      <a href={href} class={styles.mobileLink}>{label}</a>
+    ))}
+  </div>
+
+  <a href="/contact" class={styles.mobileCta}>Book Inspection</a>
+</div>
+
+<script is:inline>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('mobile-menu-open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
-  if (btn) btn.addEventListener('click', toggleMenu);
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('mobile-menu-open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
 
-  // Close menu on link click
-  if (menu) {
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        open = false;
-        menu.style.display = 'none';
-        if (btn) btn.classList.remove('hamburger-open');
-        document.body.style.overflow = '';
-      });
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
   }
 </script>
-
-<style>
-  :global(.hamburger-open .bar:nth-child(1)) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  :global(.hamburger-open .bar:nth-child(2)) {
-    opacity: 0;
-  }
-  :global(.hamburger-open .bar:nth-child(3)) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-</style>

@@ -959,7 +959,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 90px 24px 48px; }
+  .hero { padding: 120px 20px 60px; }
 
   /* ── Hero: text first, slot machine second ── */
   .heroInner {

@@ -79,6 +79,8 @@
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .ctaBtn:hover {
@@ -86,6 +88,7 @@
   box-shadow: 0 8px 25px rgba(91, 201, 131, 0.4);
 }
 
+/* ── Hamburger ── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -96,6 +99,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 1001;
 }
 
 .bar {
@@ -107,47 +111,91 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.hamburgerOpen .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburgerOpen .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburgerOpen .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
+/* ── Full-screen Mobile Menu ── */
 .mobileMenu {
+  display: none;
   position: fixed;
-  top: 90px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #061b2d;
+  background: #ffffff;
+  z-index: 9999;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 40px;
+  overflow-y: auto;
+}
+
+/* JS adds this class to show the menu */
+:global(.mobile-menu-open) {
+  display: flex !important;
+}
+
+.mobileMenuTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(6, 27, 45, 0.08);
+  margin-bottom: 16px;
+}
+
+.mobileLogo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.mobileLogoImg {
+  height: 72px;
+  width: auto;
+  display: block;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(6, 27, 45, 0.06);
+}
+
+.mobileLinks {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  flex: 1;
   justify-content: center;
-  gap: 0;
-  z-index: 1001;
-  overflow-y: auto;
+  gap: 4px;
 }
 
 .mobileLink {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 22px;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #ffffff;
-  transition: color 0.3s ease;
-  padding: 18px 24px;
+  color: #061b2d;
+  text-decoration: none;
+  padding: 20px;
   width: 100%;
   text-align: center;
+  transition: color 0.2s ease, background 0.2s ease;
+  border-radius: 10px;
 }
 
 .mobileLink:hover {
   color: #5bc983;
+  background: rgba(91, 201, 131, 0.07);
 }
 
 .mobileCta {
@@ -155,15 +203,16 @@
   color: #061b2d;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  padding: 16px 24px;
+  font-size: 1.125rem;
+  padding: 18px 24px;
   border-radius: 10px;
-  margin-top: 16px;
-  width: 80%;
+  width: 100%;
   max-width: 320px;
   text-align: center;
+  text-decoration: none;
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 8px;
 }
 
 .mobileCta:hover {
@@ -171,6 +220,7 @@
   box-shadow: 0 8px 25px rgba(91, 201, 131, 0.4);
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .nav {
     padding: 0 24px;
@@ -183,9 +233,5 @@
 
   .hamburger {
     display: flex;
-  }
-
-  .mobileMenu {
-    top: 72px;
   }
 }
