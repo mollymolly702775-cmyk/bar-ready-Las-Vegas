@@ -961,12 +961,23 @@
 @media (max-width: 768px) {
   .hero { padding: 90px 24px 48px; }
 
+  /* ── Hero: text first, slot machine second ── */
   .heroInner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
   }
 
-  .heroRight { order: -1; }
+  .heroLeft {
+    order: 1;
+  }
+
+  .heroRight {
+    order: 2;
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+  }
 
   .signWrap { width: 280px; height: 340px; }
   .signBar  { font-size: 3.8rem; }
@@ -975,9 +986,20 @@
 
   .problems { padding: 72px 24px; }
 
+  /* ── Risk cards: single column, stat chips always visible ── */
   .probGrid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .pcard {
+    height: auto;
+  }
+
+  .chover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .hiw { padding: 72px 24px; }
@@ -998,11 +1020,31 @@
   .stitle  { font-size: 1.8rem; }
   .sbig    { font-size: 6rem; }
 
+  /* ── Stats: prevent overflow, shrink background numbers ── */
   .statsSec { padding: 72px 24px; }
 
   .statsInner {
     grid-template-columns: 1fr;
     gap: 48px;
+    overflow: hidden;
+  }
+
+  .statsGrid {
+    overflow: hidden;
+    gap: 12px;
+  }
+
+  .scard {
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .scard::after {
+    font-size: 2.5rem;
+  }
+
+  .sv {
+    font-size: 2.6rem;
   }
 
   .fcta { padding: 72px 24px; }
