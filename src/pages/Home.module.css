@@ -44,7 +44,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 100px 56px 60px;
+  padding: 40px 56px 60px;
   background: #061b2d;
   position: relative;
   overflow: hidden;
@@ -959,7 +959,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 120px 20px 60px; }
+  .hero { padding: 40px 20px 60px; }
 
   /* ── Hero: text first, slot machine second ── */
   .heroInner {

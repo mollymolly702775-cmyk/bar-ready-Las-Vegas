@@ -24,6 +24,22 @@ body {
   overflow-x: hidden;
 }
 
+/* ── Navbar clearance ──────────────────────────────────────
+   The navbar is position:fixed at 90px tall (72px on mobile).
+   All first sections are dark navy, so main's background
+   is set to match — the padding gap is visually seamless.
+   --------------------------------------------------------- */
+main {
+  padding-top: 90px;
+  background: #061b2d;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 72px;
+  }
+}
+
 h1, h2, h3, h4 {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }

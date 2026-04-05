@@ -3,7 +3,7 @@
   background: #061b2d;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
-  padding: 120px 56px 80px;
+  padding: 40px 56px 80px;
   position: relative;
   overflow: hidden;
 }
@@ -463,7 +463,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .heroSection {
-    padding: 100px 20px 60px;
+    padding: 40px 20px 60px;
   }
 
   .heroHeadline {
